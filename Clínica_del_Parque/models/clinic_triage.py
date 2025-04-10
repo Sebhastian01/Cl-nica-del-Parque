@@ -4,11 +4,15 @@ class ClinicTriage(models.Model):
     _name = 'clinic.triage'
     _description = 'Triage'
 
-    name = fields.Char(string='Referencia')
-    patient_id = fields.Many2one('clinic.patient', string='Paciente')
+    name = fields.Char(string='Referencia', required=True)
+    patient_id = fields.Many2one('clinic.patient.entry', string='Paciente', required=True)
+    entry_id = fields.Many2one('clinic.patient.entry', string='Ingreso', required=True)
     state = fields.Selection([
         ('espera', 'En espera'),
         ('evaluado', 'Evaluado'),
         ('transferido', 'Transferido'),
-    ], string='Estado', default='espera')
+    ], default='espera', string='Estado', required=True)
     notes = fields.Text(string='Notas')
+
+
+

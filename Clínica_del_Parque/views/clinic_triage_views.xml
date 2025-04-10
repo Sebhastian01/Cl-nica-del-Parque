@@ -1,6 +1,6 @@
 <odoo>
 
-    <!-- Vista formulario -->
+    <!-- Vista Formulario -->
     <record id="view_clinic_triage_form" model="ir.ui.view">
         <field name="name">clinic.triage.form</field>
         <field name="model">clinic.triage</field>
@@ -9,7 +9,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="patient_id"/>
+                        <field name="patient_id"/>  <!-- Removed options={} -->
                         <field name="state" readonly="1"/>
                         <field name="notes"/>
                     </group>
@@ -18,7 +18,7 @@
         </field>
     </record>
 
-    <!-- Vista árbol -->
+    <!-- Vista Árbol -->
     <record id="view_clinic_triage_tree" model="ir.ui.view">
         <field name="name">clinic.triage.tree</field>
         <field name="model">clinic.triage</field>
@@ -38,15 +38,16 @@
         <field name="arch" type="xml">
             <kanban default_group_by="state">
                 <field name="state"/>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="notes"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click o_kanban_record">
-                            <div class="o_kanban_details">
-                                <strong><field name="name"/></strong>
-                                <div>Paciente: <field name="patient_id"/></div>
-                                <div>Estado: <field name="state"/></div>
-                                <div><field name="notes"/></div>
-                            </div>
+                        <div class="oe_kanban_global_click o_kanban_card">
+                            <strong><field name="name"/></strong><br/>
+                            <div>Paciente: <field name="patient_id"/></div>
+                            <div><field name="notes"/></div>
+                            <div style="color: #888;">Estado: <field name="state"/></div>
                         </div>
                     </t>
                 </templates>
@@ -66,7 +67,7 @@
         </field>
     </record>
 
-    <!-- Menú de Triage (bajo el menú raíz "Clínica del Parque") -->
+    <!-- Menú de Triage -->
     <menuitem id="menu_clinic_triage"
               name="Triage"
               parent="menu_clinic_root"

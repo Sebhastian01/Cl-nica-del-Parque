@@ -1,4 +1,5 @@
 <odoo>
+    <!-- Kanban View -->
     <record id="view_patient_entry_kanban" model="ir.ui.view">
         <field name="name">clinic.patient.entry.kanban</field>
         <field name="model">clinic.patient.entry</field>
@@ -7,12 +8,14 @@
                 <field name="name"/>
                 <field name="companion"/>
                 <field name="reason"/>
+                <field name="state"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click o_kanban_card">
                             <strong><field name="name"/></strong><br/>
                             <span><t t-esc="record.companion.raw_value"/></span><br/>
-                            <i><t t-esc="record.reason.raw_value"/></i>
+                            <i><t t-esc="record.reason.raw_value"/></i><br/>
+                            <span style="color: #888;">Estado: <t t-esc="record.state.raw_value"/></span>
                         </div>
                     </t>
                 </templates>
@@ -20,6 +23,7 @@
         </field>
     </record>
 
+    <!-- Form View -->
     <record id="view_patient_entry_form" model="ir.ui.view">
         <field name="name">clinic.patient.entry.form</field>
         <field name="model">clinic.patient.entry</field>
@@ -34,18 +38,21 @@
                         <field name="reason"/>
                         <field name="signature" widget="signature"/>
                         <field name="clinical_file_created" readonly="1"/>
+                        <field name="state" readonly="1"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <!-- Acción para mostrar las vistas -->
     <record id="action_clinic_patient_entry" model="ir.actions.act_window">
         <field name="name">Ingresos de Pacientes</field>
         <field name="res_model">clinic.patient.entry</field>
         <field name="view_mode">kanban,form</field>
     </record>
 
+    <!-- Menús -->
     <menuitem id="menu_clinic_root" name="Clínica del Parque"/>
     <menuitem id="menu_clinic_entries" name="Ingresos" parent="menu_clinic_root" action="action_clinic_patient_entry"/>
 </odoo>

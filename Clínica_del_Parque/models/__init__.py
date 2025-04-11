@@ -1,3 +1,4 @@
 from . import patient_entry
 from . import clinic_triage
-# importa aquí otros modelos cuando los crees
+from . import clinic_consulta
+

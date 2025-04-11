@@ -1,5 +1,4 @@
 <odoo>
-
     <!-- Vista Formulario -->
     <record id="view_clinic_triage_form" model="ir.ui.view">
         <field name="name">clinic.triage.form</field>
@@ -9,8 +8,8 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="patient_id"/>  <!-- Removed options={} -->
-                        <field name="state" readonly="1"/>
+                        <field name="patient_id"/>
+                        <field name="state"/>
                         <field name="notes"/>
                     </group>
                 </sheet>
@@ -32,7 +31,7 @@
     </record>
 
     <!-- Vista Kanban -->
-    <record id="view_clinic_triage_kanban" model="ir.ui.view">
+     <record id="view_clinic_triage_kanban" model="ir.ui.view">
         <field name="name">clinic.triage.kanban</field>
         <field name="model">clinic.triage</field>
         <field name="arch" type="xml">
@@ -73,5 +72,4 @@
               parent="menu_clinic_root"
               sequence="20"
               action="action_clinic_triage"/>
-
 </odoo>

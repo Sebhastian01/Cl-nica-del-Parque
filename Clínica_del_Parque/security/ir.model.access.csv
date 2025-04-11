@@ -1,5 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_clinic_patient_entry,clinic.patient.entry,model_clinic_patient_entry,,1,1,1,1
 access_clinic_triage,clinic.triage,model_clinic_triage,,1,1,1,1
+access_clinic_consulta,clinic.consulta,model_clinic_consulta,,1,1,1,1
+
 
 

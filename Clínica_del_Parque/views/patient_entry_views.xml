@@ -56,3 +56,5 @@
     <menuitem id="menu_clinic_root" name="Clínica del Parque"/>
     <menuitem id="menu_clinic_entries" name="Ingresos" parent="menu_clinic_root" action="action_clinic_patient_entry"/>
 </odoo>
+
+

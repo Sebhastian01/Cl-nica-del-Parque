@@ -7,6 +7,7 @@
         'security/ir.model.access.csv',
         'views/patient_entry_views.xml',
         'views/clinic_triage_views.xml',
+        'views/consulta_views.xml',
     ],
     'installable': True,
     'application': True,
